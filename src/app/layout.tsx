@@ -26,11 +26,11 @@ export const metadata = {
   },
 };
 
-export default async function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: ReactNode;
-}) {
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   // Don't await the fetch, pass the Promise to the context provider
   const cart = getCart();
 

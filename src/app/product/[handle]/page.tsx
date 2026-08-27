@@ -12,9 +12,13 @@ import Footer from "components/layout/footer";
 import { Gallery } from "components/product/gallery";
 import { ProductDescription } from "components/product/product-description";
 
-export async function generateMetadata(props: {
+interface ProductPageProps {
   params: Promise<{ handle: string }>;
-}): Promise<Metadata> {
+}
+
+export async function generateMetadata(
+  props: ProductPageProps
+): Promise<Metadata> {
   const params = await props.params;
   const product = await getProduct(params.handle);
 
@@ -49,9 +53,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default function ProductPage(props: {
-  params: Promise<{ handle: string }>;
-}) {
+export default function ProductPage(props: ProductPageProps) {
   return (
     <Suspense fallback={null}>
       <ProductPageContent params={props.params} />
@@ -59,11 +61,7 @@ export default function ProductPage(props: {
   );
 }
 
-async function ProductPageContent({
-  params: paramsPromise,
-}: {
-  params: Promise<{ handle: string }>;
-}) {
+async function ProductPageContent({ params: paramsPromise }: ProductPageProps) {
   const params = await paramsPromise;
   const product = await getProduct(params.handle);
 
@@ -124,7 +122,11 @@ async function ProductPageContent({
   );
 }
 
-async function RelatedProducts({ id }: { id: string }) {
+interface RelatedProductsProps {
+  id: string;
+}
+
+async function RelatedProducts({ id }: RelatedProductsProps) {
   const relatedProducts = await getProductRecommendations(id);
 
   if (!relatedProducts.length) return null;

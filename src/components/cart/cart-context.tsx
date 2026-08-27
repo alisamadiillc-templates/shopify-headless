@@ -191,13 +191,12 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   }
 }
 
-export function CartProvider({
-  children,
-  cartPromise,
-}: {
+interface CartProviderProps {
   children: React.ReactNode;
   cartPromise: Promise<Cart | undefined>;
-}) {
+}
+
+export function CartProvider({ children, cartPromise }: CartProviderProps) {
   return (
     <CartContext.Provider value={{ cartPromise }}>
       {children}

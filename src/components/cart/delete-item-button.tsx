@@ -7,13 +7,15 @@ import type { CartItem } from "lib/shopify/types";
 
 import { removeItem } from "components/cart/actions";
 
+interface DeleteItemButtonProps {
+  item: CartItem;
+  optimisticUpdate: any;
+}
+
 export function DeleteItemButton({
   item,
   optimisticUpdate,
-}: {
-  item: CartItem;
-  optimisticUpdate: any;
-}) {
+}: DeleteItemButtonProps) {
   const [message, formAction] = useActionState(removeItem, null);
   const merchandiseId = item.merchandise.id;
   const removeItemAction = formAction.bind(null, merchandiseId);

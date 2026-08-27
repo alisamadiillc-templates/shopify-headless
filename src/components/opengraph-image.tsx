@@ -4,12 +4,12 @@ import { ImageResponse } from "next/og";
 
 import LogoIcon from "./icons/logo";
 
-export type Props = {
+export interface OpengraphImageProps {
   title?: string;
-};
+}
 
 export default async function OpengraphImage(
-  props?: Props
+  props?: OpengraphImageProps
 ): Promise<ImageResponse> {
   const { title } = {
     ...{

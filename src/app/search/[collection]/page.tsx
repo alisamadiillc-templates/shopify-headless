@@ -7,9 +7,14 @@ import { getCollection, getCollectionProducts } from "lib/shopify";
 import Grid from "components/grid";
 import ProductGridItems from "components/layout/product-grid-items";
 
-export async function generateMetadata(props: {
+interface CategoryPageProps {
   params: Promise<{ collection: string }>;
-}): Promise<Metadata> {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export async function generateMetadata(
+  props: CategoryPageProps
+): Promise<Metadata> {
   const params = await props.params;
   const collection = await getCollection(params.collection);
 
@@ -24,10 +29,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function CategoryPage(props: {
-  params: Promise<{ collection: string }>;
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
+export default async function CategoryPage(props: CategoryPageProps) {
   const searchParams = await props.searchParams;
   const params = await props.params;
   const { sort } = searchParams as { [key: string]: string };

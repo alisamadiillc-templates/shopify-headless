@@ -10,7 +10,11 @@ import { Menu } from "lib/shopify/types";
 
 import Search, { SearchSkeleton } from "./search";
 
-export default function MobileMenu({ menu }: { menu: Menu[] }) {
+interface MobileMenuProps {
+  menu: Menu[];
+}
+
+export default function MobileMenu({ menu }: MobileMenuProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);

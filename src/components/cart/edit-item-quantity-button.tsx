@@ -2,20 +2,24 @@
 
 import { useActionState } from "react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
 
 import type { CartItem } from "lib/shopify/types";
+import { cn } from "lib/utils";
 
 import { updateItemQuantity } from "components/cart/actions";
 
-function SubmitButton({ type }: { type: "plus" | "minus" }) {
+interface SubmitButtonProps {
+  type: "plus" | "minus";
+}
+
+function SubmitButton({ type }: SubmitButtonProps) {
   return (
     <button
       type="submit"
       aria-label={
         type === "plus" ? "Increase item quantity" : "Reduce item quantity"
       }
-      className={clsx(
+      className={cn(
         "ease flex h-full max-w-[36px] min-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80",
         {
           "ml-auto": type === "minus",
@@ -31,15 +35,17 @@ function SubmitButton({ type }: { type: "plus" | "minus" }) {
   );
 }
 
+interface EditItemQuantityButtonProps {
+  item: CartItem;
+  type: "plus" | "minus";
+  optimisticUpdate: any;
+}
+
 export function EditItemQuantityButton({
   item,
   type,
   optimisticUpdate,
-}: {
-  item: CartItem;
-  type: "plus" | "minus";
-  optimisticUpdate: any;
-}) {
+}: EditItemQuantityButtonProps) {
   const [message, formAction] = useActionState(updateItemQuantity, null);
   const payload = {
     merchandiseId: item.merchandise.id,

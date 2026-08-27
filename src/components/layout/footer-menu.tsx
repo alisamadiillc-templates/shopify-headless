@@ -3,11 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
 
 import { Menu } from "lib/shopify/types";
+import { cn } from "lib/utils";
 
-export function FooterMenuItem({ item }: { item: Menu }) {
+interface FooterMenuItemProps {
+  item: Menu;
+}
+
+export function FooterMenuItem({ item }: FooterMenuItemProps) {
   const pathname = usePathname();
   const [active, setActive] = useState(pathname === item.path);
 
@@ -19,7 +23,7 @@ export function FooterMenuItem({ item }: { item: Menu }) {
     <li>
       <Link
         href={item.path}
-        className={clsx(
+        className={cn(
           "block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300",
           {
             "text-black dark:text-neutral-300": active,
@@ -32,7 +36,11 @@ export function FooterMenuItem({ item }: { item: Menu }) {
   );
 }
 
-export default function FooterMenu({ menu }: { menu: Menu[] }) {
+interface FooterMenuProps {
+  menu: Menu[];
+}
+
+export default function FooterMenu({ menu }: FooterMenuProps) {
   if (!menu.length) return null;
 
   return (

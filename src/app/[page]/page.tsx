@@ -5,9 +5,11 @@ import { getPage } from "lib/shopify";
 
 import Prose from "components/prose";
 
-export async function generateMetadata(props: {
+interface PageProps {
   params: Promise<{ page: string }>;
-}): Promise<Metadata> {
+}
+
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
   const page = await getPage(params.page);
 
@@ -24,9 +26,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function Page(props: {
-  params: Promise<{ page: string }>;
-}) {
+export default async function Page(props: PageProps) {
   const params = await props.params;
   const page = await getPage(params.page);
 

@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import clsx from "clsx";
 
 import { ProductOption, ProductVariant } from "lib/shopify/types";
+import { cn } from "lib/utils";
 
 type Combination = {
   id: string;
@@ -11,13 +11,12 @@ type Combination = {
   [key: string]: string | boolean;
 };
 
-export function VariantSelector({
-  options,
-  variants,
-}: {
+interface VariantSelectorProps {
   options: ProductOption[];
   variants: ProductVariant[];
-}) {
+}
+
+export function VariantSelector({ options, variants }: VariantSelectorProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const hasNoOptionsOrJustOneOption =
@@ -85,7 +84,7 @@ export function VariantSelector({
                 aria-disabled={!isAvailableForSale}
                 disabled={!isAvailableForSale}
                 title={`${option.name} ${value}${!isAvailableForSale ? " (Out of Stock)" : ""}`}
-                className={clsx(
+                className={cn(
                   "flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900",
                   {
                     "cursor-default ring-2 ring-blue-600": isActive,

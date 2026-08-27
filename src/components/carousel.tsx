@@ -10,6 +10,8 @@ export async function Carousel() {
     collection: "hidden-homepage-carousel",
   });
 
+  console.log("Carousel products:", products);
+
   if (!products?.length) return null;
 
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.

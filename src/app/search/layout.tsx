@@ -8,11 +8,11 @@ import FilterList from "components/layout/search/filter";
 
 import ChildrenWrapper from "./children-wrapper";
 
-export default function SearchLayout({
-  children,
-}: {
+interface SearchLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function SearchLayout({ children }: SearchLayoutProps) {
   return (
     <>
       <div className="mx-auto flex max-w-(--breakpoint-2xl) flex-col gap-8 px-4 pb-4 text-black md:flex-row dark:text-white">

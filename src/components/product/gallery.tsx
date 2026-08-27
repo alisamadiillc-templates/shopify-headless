@@ -6,11 +6,11 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import { GridTileImage } from "components/grid/tile";
 
-export function Gallery({
-  images,
-}: {
+interface GalleryProps {
   images: { src: string; altText: string }[];
-}) {
+}
+
+export function Gallery({ images }: GalleryProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const imageIndex = searchParams.has("image")

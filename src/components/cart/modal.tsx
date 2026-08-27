@@ -5,11 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dialog, Transition } from "@headlessui/react";
 import { ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
 import { useFormStatus } from "react-dom";
 
 import { DEFAULT_OPTION } from "lib/constants";
-import { createUrl } from "lib/utils";
+import { cn, createUrl } from "lib/utils";
 
 import LoadingDots from "components/loading-dots";
 import Price from "components/price";
@@ -231,11 +230,15 @@ export default function CartModal() {
   );
 }
 
-function CloseCart({ className }: { className?: string }) {
+interface CloseCartProps {
+  className?: string;
+}
+
+function CloseCart({ className }: CloseCartProps) {
   return (
     <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
       <XMarkIcon
-        className={clsx(
+        className={cn(
           "h-6 transition-all ease-in-out hover:scale-110",
           className
         )}

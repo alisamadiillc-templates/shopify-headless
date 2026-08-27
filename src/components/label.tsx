@@ -1,21 +1,23 @@
-import clsx from "clsx";
+import { cn } from "lib/utils";
 
 import Price from "./price";
+
+interface LabelProps {
+  title: string;
+  amount: string;
+  currencyCode: string;
+  position?: "bottom" | "center";
+}
 
 const Label = ({
   title,
   amount,
   currencyCode,
   position = "bottom",
-}: {
-  title: string;
-  amount: string;
-  currencyCode: string;
-  position?: "bottom" | "center";
-}) => {
+}: LabelProps) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         "@container/label absolute bottom-0 left-0 flex w-full px-4 pb-4",
         {
           "lg:px-20 lg:pb-[35%]": position === "center",

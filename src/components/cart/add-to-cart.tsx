@@ -3,28 +3,30 @@
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
 
 import { Product, ProductVariant } from "lib/shopify/types";
+import { cn } from "lib/utils";
 
 import { addItem } from "components/cart/actions";
 
 import { useCart } from "./cart-context";
 
+interface SubmitButtonProps {
+  availableForSale: boolean;
+  selectedVariantId: string | undefined;
+}
+
 function SubmitButton({
   availableForSale,
   selectedVariantId,
-}: {
-  availableForSale: boolean;
-  selectedVariantId: string | undefined;
-}) {
+}: SubmitButtonProps) {
   const buttonClasses =
     "relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white";
   const disabledClasses = "cursor-not-allowed opacity-60 hover:opacity-60";
 
   if (!availableForSale) {
     return (
-      <button disabled className={clsx(buttonClasses, disabledClasses)}>
+      <button disabled className={cn(buttonClasses, disabledClasses)}>
         Out Of Stock
       </button>
     );
@@ -35,7 +37,7 @@ function SubmitButton({
       <button
         aria-label="Please select an option"
         disabled
-        className={clsx(buttonClasses, disabledClasses)}
+        className={cn(buttonClasses, disabledClasses)}
       >
         <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
@@ -48,7 +50,7 @@ function SubmitButton({
   return (
     <button
       aria-label="Add to cart"
-      className={clsx(buttonClasses, {
+      className={cn(buttonClasses, {
         "hover:opacity-90": true,
       })}
     >
@@ -60,7 +62,11 @@ function SubmitButton({
   );
 }
 
-export function AddToCart({ product }: { product: Product }) {
+interface AddToCartProps {
+  product: Product;
+}
+
+export function AddToCart({ product }: AddToCartProps) {
   const { variants, availableForSale } = product;
   const { addCartItem } = useCart();
   const searchParams = useSearchParams();

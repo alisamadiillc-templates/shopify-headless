@@ -5,11 +5,11 @@ import { Product } from "lib/shopify/types";
 import Grid from "components/grid";
 import { GridTileImage } from "components/grid/tile";
 
-export default function ProductGridItems({
-  products,
-}: {
+interface ProductGridItemsProps {
   products: Product[];
-}) {
+}
+
+export default function ProductGridItems({ products }: ProductGridItemsProps) {
   return (
     <>
       {products.map((product) => (

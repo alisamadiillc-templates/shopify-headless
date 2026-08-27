@@ -8,7 +8,11 @@ import { FilterItem } from "./item";
 export type ListItem = SortFilterItem | PathFilterItem;
 export type PathFilterItem = { title: string; path: string };
 
-function FilterItemList({ list }: { list: ListItem[] }) {
+interface FilterItemListProps {
+  list: ListItem[];
+}
+
+function FilterItemList({ list }: FilterItemListProps) {
   return (
     <>
       {list.map((item: ListItem, i) => (
@@ -18,13 +22,12 @@ function FilterItemList({ list }: { list: ListItem[] }) {
   );
 }
 
-export default function FilterList({
-  list,
-  title,
-}: {
+interface FilterListProps {
   list: ListItem[];
   title?: string;
-}) {
+}
+
+export default function FilterList({ list, title }: FilterListProps) {
   return (
     <>
       <nav>

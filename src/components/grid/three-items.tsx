@@ -5,15 +5,13 @@ import type { Product } from "lib/shopify/types";
 
 import { GridTileImage } from "components/grid/tile";
 
-function ThreeItemGridItem({
-  item,
-  size,
-  priority,
-}: {
+interface ThreeItemGridItemProps {
   item: Product;
   size: "full" | "half";
   priority?: boolean;
-}) {
+}
+
+function ThreeItemGridItem({ item, size, priority }: ThreeItemGridItemProps) {
   return (
     <div
       className={
