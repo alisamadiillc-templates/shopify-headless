@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
-import { GridTileImage } from "components/grid/tile";
+import { GridTileImage } from "@/components/grid/tile";
 
 interface GalleryProps {
   images: { src: string; altText: string }[];

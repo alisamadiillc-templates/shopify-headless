@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { getCollectionProducts } from "lib/shopify";
+import { getCollectionProducts } from "@/lib/shopify";
 
 import { GridTileImage } from "./grid/tile";
 

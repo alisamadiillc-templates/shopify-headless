@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { getPage } from "lib/shopify";
+import { getPage } from "@/lib/shopify";
 
-import Prose from "components/prose";
+import Prose from "@/components/prose";
 
 interface PageProps {
   params: Promise<{ page: string }>;

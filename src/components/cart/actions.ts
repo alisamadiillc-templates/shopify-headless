@@ -4,14 +4,14 @@ import { updateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { TAGS } from "lib/constants";
+import { TAGS } from "@/lib/constants";
 import {
   addToCart,
   createCart,
   getCart,
   removeFromCart,
   updateCart,
-} from "lib/shopify";
+} from "@/lib/shopify";
 
 export async function addItem(
   prevState: any,

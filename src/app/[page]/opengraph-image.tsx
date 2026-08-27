@@ -1,6 +1,6 @@
-import { getPage } from "lib/shopify";
+import { getPage } from "@/lib/shopify";
 
-import OpengraphImage from "components/opengraph-image";
+import OpengraphImage from "@/components/opengraph-image";
 
 interface ImageProps {
   params: Promise<{ page: string }>;

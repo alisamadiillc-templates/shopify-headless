@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Menu } from "lib/shopify/types";
-import { cn } from "lib/utils";
+import { Menu } from "@/lib/shopify/types";
+import { cn } from "@/lib/utils";
 
 interface FooterMenuItemProps {
   item: Menu;

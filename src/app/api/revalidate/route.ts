@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-import { TAGS } from "lib/constants";
+import { TAGS } from "@/lib/constants";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   // We always need to respond with a 200 status code to Shopify,

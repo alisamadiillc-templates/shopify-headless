@@ -3,9 +3,9 @@
 import { useActionState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import type { CartItem } from "lib/shopify/types";
+import type { CartItem } from "@/lib/shopify/types";
 
-import { removeItem } from "components/cart/actions";
+import { removeItem } from "@/components/cart/actions";
 
 interface DeleteItemButtonProps {
   item: CartItem;

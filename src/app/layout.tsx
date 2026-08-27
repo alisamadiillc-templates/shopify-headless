@@ -2,15 +2,15 @@ import { ReactNode } from "react";
 import { GeistSans } from "geist/font/sans";
 import { Toaster } from "sonner";
 
-import { getCart } from "lib/shopify";
+import { getCart } from "@/lib/shopify";
 
-import { CartProvider } from "components/cart/cart-context";
-import { Navbar } from "components/layout/navbar";
-import { WelcomeToast } from "components/welcome-toast";
+import { CartProvider } from "@/components/cart/cart-context";
+import { Navbar } from "@/components/layout/navbar";
+import { WelcomeToast } from "@/components/welcome-toast";
 
 import "./globals.css";
 
-import { baseUrl } from "lib/utils";
+import { baseUrl } from "@/lib/utils";
 
 const { SITE_NAME } = process.env;
 

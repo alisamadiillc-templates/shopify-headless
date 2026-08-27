@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
-import { getCollections } from "lib/shopify";
-import { cn } from "lib/utils";
+import { getCollections } from "@/lib/shopify";
+import { cn } from "@/lib/utils";
 
 import FilterList from "./filter";
 

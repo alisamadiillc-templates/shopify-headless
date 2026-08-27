@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 import Link from "next/link";
 
-import { getMenu } from "lib/shopify";
-import { Menu } from "lib/shopify/types";
+import { getMenu } from "@/lib/shopify";
+import { Menu } from "@/lib/shopify/types";
 
-import CartModal from "components/cart/modal";
-import OpenCart from "components/cart/open-cart";
-import LogoSquare from "components/logo-square";
+import CartModal from "@/components/cart/modal";
+import OpenCart from "@/components/cart/open-cart";
+import LogoSquare from "@/components/logo-square";
 
 import MobileMenu from "./mobile-menu";
 import Search, { SearchSkeleton } from "./search";

@@ -4,10 +4,10 @@ import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
-import { Product, ProductVariant } from "lib/shopify/types";
-import { cn } from "lib/utils";
+import { Product, ProductVariant } from "@/lib/shopify/types";
+import { cn } from "@/lib/utils";
 
-import { addItem } from "components/cart/actions";
+import { addItem } from "@/components/cart/actions";
 
 import { useCart } from "./cart-context";
 

@@ -2,10 +2,10 @@ import { Suspense } from "react";
 import { cacheLife } from "next/cache";
 import Link from "next/link";
 
-import { getMenu } from "lib/shopify";
+import { getMenu } from "@/lib/shopify";
 
-import FooterMenu from "components/layout/footer-menu";
-import LogoSquare from "components/logo-square";
+import FooterMenu from "@/components/layout/footer-menu";
+import LogoSquare from "@/components/logo-square";
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import Footer from "components/layout/footer";
+import Footer from "@/components/layout/footer";
 
 interface LayoutProps {
   children: React.ReactNode;

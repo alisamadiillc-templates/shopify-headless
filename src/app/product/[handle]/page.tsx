@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { HIDDEN_PRODUCT_TAG } from "lib/constants";
-import { getProduct, getProductRecommendations } from "lib/shopify";
-import type { Image } from "lib/shopify/types";
+import { HIDDEN_PRODUCT_TAG } from "@/lib/constants";
+import { getProduct, getProductRecommendations } from "@/lib/shopify";
+import type { Image } from "@/lib/shopify/types";
 
-import { GridTileImage } from "components/grid/tile";
-import Footer from "components/layout/footer";
-import { Gallery } from "components/product/gallery";
-import { ProductDescription } from "components/product/product-description";
+import { GridTileImage } from "@/components/grid/tile";
+import Footer from "@/components/layout/footer";
+import { Gallery } from "@/components/product/gallery";
+import { ProductDescription } from "@/components/product/product-description";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;

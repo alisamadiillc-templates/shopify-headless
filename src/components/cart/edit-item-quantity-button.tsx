@@ -3,10 +3,10 @@
 import { useActionState } from "react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 
-import type { CartItem } from "lib/shopify/types";
-import { cn } from "lib/utils";
+import type { CartItem } from "@/lib/shopify/types";
+import { cn } from "@/lib/utils";
 
-import { updateItemQuantity } from "components/cart/actions";
+import { updateItemQuantity } from "@/components/cart/actions";
 
 interface SubmitButtonProps {
   type: "plus" | "minus";

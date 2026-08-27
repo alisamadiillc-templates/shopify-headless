@@ -1,6 +1,6 @@
-import { getCollection } from "lib/shopify";
+import { getCollection } from "@/lib/shopify";
 
-import OpengraphImage from "components/opengraph-image";
+import OpengraphImage from "@/components/opengraph-image";
 
 interface ImageProps {
   params: Promise<{ collection: string }>;

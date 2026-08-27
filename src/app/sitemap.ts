@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
-import { getCollections, getPages, getProducts } from "lib/shopify";
-import { baseUrl, validateEnvironmentVariables } from "lib/utils";
+import { getCollections, getPages, getProducts } from "@/lib/shopify";
+import { baseUrl, validateEnvironmentVariables } from "@/lib/utils";
 
 type Route = {
   url: string;

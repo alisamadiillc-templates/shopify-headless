@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 
-import { sorting } from "lib/constants";
+import { sorting } from "@/lib/constants";
 
-import Footer from "components/layout/footer";
-import Collections from "components/layout/search/collections";
-import FilterList from "components/layout/search/filter";
+import Footer from "@/components/layout/footer";
+import Collections from "@/components/layout/search/collections";
+import FilterList from "@/components/layout/search/filter";
 
 import ChildrenWrapper from "./children-wrapper";
 

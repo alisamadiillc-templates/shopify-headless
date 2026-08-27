@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { defaultSort, sorting } from "lib/constants";
-import { getCollection, getCollectionProducts } from "lib/shopify";
+import { defaultSort, sorting } from "@/lib/constants";
+import { getCollection, getCollectionProducts } from "@/lib/shopify";
 
-import Grid from "components/grid";
-import ProductGridItems from "components/layout/product-grid-items";
+import Grid from "@/components/grid";
+import ProductGridItems from "@/components/layout/product-grid-items";
 
 interface CategoryPageProps {
   params: Promise<{ collection: string }>;

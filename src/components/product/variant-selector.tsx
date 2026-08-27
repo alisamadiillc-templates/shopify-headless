@@ -2,8 +2,8 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { ProductOption, ProductVariant } from "lib/shopify/types";
-import { cn } from "lib/utils";
+import { ProductOption, ProductVariant } from "@/lib/shopify/types";
+import { cn } from "@/lib/utils";
 
 type Combination = {
   id: string;
