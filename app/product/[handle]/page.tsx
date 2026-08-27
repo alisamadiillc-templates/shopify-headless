@@ -47,10 +47,22 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function ProductPage(props: {
+export default function ProductPage(props: {
   params: Promise<{ handle: string }>;
 }) {
-  const params = await props.params;
+  return (
+    <Suspense fallback={null}>
+      <ProductPageContent params={props.params} />
+    </Suspense>
+  );
+}
+
+async function ProductPageContent({
+  params: paramsPromise,
+}: {
+  params: Promise<{ handle: string }>;
+}) {
+  const params = await paramsPromise;
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
