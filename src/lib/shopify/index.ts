@@ -23,6 +23,7 @@ import {
 } from "./queries/collection";
 import { getMenuQuery } from "./queries/menu";
 import { getPageQuery, getPagesQuery } from "./queries/page";
+import { getShopPoliciesQuery, POLICY_HANDLES } from "./queries/policies";
 import {
   getProductQuery,
   getProductRecommendationsQuery,
@@ -52,7 +53,9 @@ import {
   ShopifyProductRecommendationsOperation,
   ShopifyProductsOperation,
   ShopifyRemoveFromCartOperation,
+  ShopifyShopPoliciesOperation,
   ShopifyUpdateCartOperation,
+  ShopPolicy,
 } from "./types";
 
 const domain = process.env.SHOPIFY_STORE_DOMAIN
@@ -435,6 +438,38 @@ export async function getPages(): Promise<Page[]> {
   });
 
   return removeEdgesAndNodes(res.body.data.pages);
+}
+
+export async function getShopPolicies(): Promise<ShopPolicy[]> {
+  "use cache";
+  cacheTag(TAGS.policies);
+  cacheLife("hours");
+
+  if (!endpoint) {
+    console.log("Skipping getShopPolicies - Shopify not configured");
+    return [];
+  }
+
+  const res = await shopifyFetch<ShopifyShopPoliciesOperation>({
+    query: getShopPoliciesQuery,
+  });
+  const shop = res.body.data.shop;
+
+  return Object.entries(POLICY_HANDLES)
+    .map(([handle, field]) => {
+      const policy = shop[field];
+      if (!policy?.body?.trim()) return undefined;
+      // Normalize to our route handle so links and lookups stay deterministic.
+      return { ...policy, handle };
+    })
+    .filter((policy): policy is ShopPolicy => Boolean(policy));
+}
+
+export async function getShopPolicy(
+  handle: string
+): Promise<ShopPolicy | undefined> {
+  const policies = await getShopPolicies();
+  return policies.find((policy) => policy.handle === handle);
 }
 
 export async function getProduct(handle: string): Promise<Product | undefined> {

@@ -1,6 +1,11 @@
 import { MetadataRoute } from "next";
 
-import { getCollections, getPages, getProducts } from "@/lib/shopify";
+import {
+  getCollections,
+  getPages,
+  getProducts,
+  getShopPolicies,
+} from "@/lib/shopify";
 import { baseUrl, validateEnvironmentVariables } from "@/lib/utils";
 
 type Route = {
@@ -37,11 +42,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
+  const policiesPromise = getShopPolicies().then((policies) =>
+    policies.map((policy) => ({
+      url: `${baseUrl}/policies/${policy.handle}`,
+      lastModified: new Date().toISOString(),
+    }))
+  );
+
   let fetchedRoutes: Route[] = [];
 
   try {
     fetchedRoutes = (
-      await Promise.all([collectionsPromise, productsPromise, pagesPromise])
+      await Promise.all([
+        collectionsPromise,
+        productsPromise,
+        pagesPromise,
+        policiesPromise,
+      ])
     ).flat();
   } catch (error) {
     throw JSON.stringify(error, null, 2);

@@ -1,3 +1,5 @@
+import type { PolicyField } from "./queries/policies";
+
 export type Maybe<T> = T | null;
 
 export type Connection<T> = {
@@ -230,6 +232,22 @@ export type ShopifyMenuOperation = {
   };
   variables: {
     handle: string;
+  };
+};
+
+export type ShopPolicy = {
+  // Nullable because subscriptionPolicy (ShopPolicyWithDefault) may return a
+  // platform default without an id.
+  id: string | null;
+  title: string;
+  handle: string;
+  body: string;
+  url: string;
+};
+
+export type ShopifyShopPoliciesOperation = {
+  data: {
+    shop: Record<PolicyField, ShopPolicy | null>;
   };
 };
 

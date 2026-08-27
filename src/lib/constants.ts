@@ -45,11 +45,12 @@ export const TAGS = {
   products: "products",
   cart: "cart",
   customer: "customer",
+  policies: "policies",
 };
 
 export const HIDDEN_PRODUCT_TAG = "nextjs-frontend-hidden";
 export const DEFAULT_OPTION = "Default Title";
-export const SHOPIFY_GRAPHQL_API_ENDPOINT = "/api/2023-01/graphql.json";
+export const SHOPIFY_GRAPHQL_API_ENDPOINT = "/api/2026-07/graphql.json";
 export const SHOPIFY_CUSTOMER_ACCOUNT_API_VERSION = "2025-07";
 export const SHOPIFY_ADMIN_API_VERSION = "2025-07";
 

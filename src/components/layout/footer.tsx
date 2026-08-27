@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getMenu } from "@/lib/shopify";
 
 import FooterMenu from "@/components/layout/footer-menu";
+import FooterPolicies from "@/components/layout/footer-policies";
 import NewsletterForm from "@/components/layout/newsletter-form";
 import LogoSquare from "@/components/logo-square";
 
@@ -64,6 +65,9 @@ export default async function Footer() {
               : ""}{" "}
             All rights reserved.
           </p>
+          <Suspense>
+            <FooterPolicies />
+          </Suspense>
         </div>
       </div>
     </footer>
