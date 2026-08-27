@@ -6,6 +6,7 @@
     "start": "next start",
     "format": "prettier --write --ignore-unknown .",
     "format:check": "prettier --check --ignore-unknown .",
+    "seed": "node --env-file=.env --experimental-strip-types scripts/seed-products.ts",
     "test": "pnpm format:check"
   },
   "dependencies": {

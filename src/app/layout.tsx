@@ -6,7 +6,6 @@ import { getCart } from "@/lib/shopify";
 
 import { CartProvider } from "@/components/cart/cart-context";
 import { Navbar } from "@/components/layout/navbar";
-import { WelcomeToast } from "@/components/welcome-toast";
 
 import "./globals.css";
 
@@ -42,7 +41,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <main>
             {children}
             <Toaster closeButton />
-            <WelcomeToast />
           </main>
         </CartProvider>
       </body>

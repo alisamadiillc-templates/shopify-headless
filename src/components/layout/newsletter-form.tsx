@@ -3,12 +3,20 @@
 import { useActionState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 
+import { cn } from "@/lib/utils";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import { NewsletterState, subscribeToNewsletter } from "./newsletter-actions";
 
-export default function NewsletterForm() {
+interface NewsletterFormProps {
+  variant?: "footer" | "band";
+}
+
+export default function NewsletterForm({
+  variant = "footer",
+}: NewsletterFormProps) {
   const [state, formAction, pending] = useActionState<
     NewsletterState,
     FormData
@@ -27,12 +35,20 @@ export default function NewsletterForm() {
     }
   }, [state]);
 
+  const band = variant === "band";
+
   return (
-    <div className="flex max-w-xs flex-col gap-2">
-      <p className="font-medium text-black dark:text-white">
-        Subscribe to our newsletter
-      </p>
-      <p className="text-xs">New products, discounts, and updates. No spam.</p>
+    <div className={cn("flex flex-col gap-2", band ? "w-full" : "max-w-xs")}>
+      {!band ? (
+        <>
+          <p className="font-medium text-black dark:text-white">
+            Subscribe to our newsletter
+          </p>
+          <p className="text-xs">
+            New products, discounts, and updates. No spam.
+          </p>
+        </>
+      ) : null}
       <form ref={formRef} action={formAction} className="flex gap-2">
         <Input
           type="email"
@@ -40,13 +56,22 @@ export default function NewsletterForm() {
           required
           placeholder="you@example.com"
           aria-label="Email address"
-          className="h-8 text-xs"
+          className={cn(
+            band
+              ? "h-12 rounded-full border-transparent bg-white/15 px-5 text-white placeholder:text-white/70 focus-visible:ring-white/50"
+              : "h-8 text-xs"
+          )}
         />
         <Button
           type="submit"
-          size="sm"
+          size={band ? "lg" : "sm"}
           disabled={pending}
-          className="h-8 flex-none text-xs"
+          className={cn(
+            "flex-none",
+            band
+              ? "h-12 rounded-full bg-white px-6 font-medium text-blue-700 hover:bg-blue-50"
+              : "h-8 text-xs"
+          )}
         >
           {pending ? "Subscribing..." : "Subscribe"}
         </Button>
