@@ -32,6 +32,9 @@ importers:
         specifier: ^2.0.8
         version: 2.0.8(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     devDependencies:
+      "@ianvs/prettier-plugin-sort-imports":
+        specifier: ^4.7.1
+        version: 4.7.1(prettier@3.9.6)
       "@tailwindcss/container-queries":
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@4.3.3)
@@ -58,7 +61,7 @@ importers:
         version: 3.9.6
       prettier-plugin-tailwindcss:
         specifier: ^0.8.1
-        version: 0.8.1(prettier@3.9.6)
+        version: 0.8.1(@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.6))(prettier@3.9.6)
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -73,6 +76,70 @@ packages:
         integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==,
       }
     engines: { node: ">=10" }
+
+  "@babel/code-frame@7.29.7":
+    resolution:
+      {
+        integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/generator@7.29.8":
+    resolution:
+      {
+        integrity: sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-globals@7.29.7":
+    resolution:
+      {
+        integrity: sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-string-parser@7.29.7":
+    resolution:
+      {
+        integrity: sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-validator-identifier@7.29.7":
+    resolution:
+      {
+        integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/parser@7.29.8":
+    resolution:
+      {
+        integrity: sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA==,
+      }
+    engines: { node: ">=6.0.0" }
+    hasBin: true
+
+  "@babel/template@7.29.7":
+    resolution:
+      {
+        integrity: sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/traverse@7.29.8":
+    resolution:
+      {
+        integrity: sha512-I5z7H3bf/41ktsNVLtpN0wAa336HkqIHQ5BuPLEhTkt1jVSyZpeNKIzTgEWmlxjdg81R0IgUCcaE+Ok3NvrfZg==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/types@7.29.8":
+    resolution:
+      {
+        integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==,
+      }
+    engines: { node: ">=6.9.0" }
 
   "@emnapi/runtime@1.11.3":
     resolution:
@@ -133,6 +200,27 @@ packages:
       }
     peerDependencies:
       react: ">= 16 || ^19.0.0-rc"
+
+  "@ianvs/prettier-plugin-sort-imports@4.7.1":
+    resolution:
+      {
+        integrity: sha512-jmTNYGlg95tlsoG3JLCcuC4BrFELJtLirLAkQW/71lXSyOhVt/Xj7xWbbGcuVbNq1gwWgSyMrPjJc9Z30hynVw==,
+      }
+    peerDependencies:
+      "@prettier/plugin-oxc": ^0.0.4 || ^0.1.0
+      "@vue/compiler-sfc": 2.7.x || 3.x
+      content-tag: ^4.0.0
+      prettier: 2 || 3 || ^4.0.0-0
+      prettier-plugin-ember-template-tag: ^2.1.0
+    peerDependenciesMeta:
+      "@prettier/plugin-oxc":
+        optional: true
+      "@vue/compiler-sfc":
+        optional: true
+      content-tag:
+        optional: true
+      prettier-plugin-ember-template-tag:
+        optional: true
 
   "@img/colour@1.1.0":
     resolution:
@@ -938,6 +1026,18 @@ packages:
         integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==,
       }
 
+  debug@4.4.3:
+    resolution:
+      {
+        integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==,
+      }
+    engines: { node: ">=6.0" }
+    peerDependencies:
+      supports-color: "*"
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
   detect-libc@2.1.2:
     resolution:
       {
@@ -971,6 +1071,20 @@ packages:
       {
         integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==,
       }
+    hasBin: true
+
+  js-tokens@4.0.0:
+    resolution:
+      {
+        integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==,
+      }
+
+  jsesc@3.1.0:
+    resolution:
+      {
+        integrity: sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==,
+      }
+    engines: { node: ">=6" }
     hasBin: true
 
   lightningcss-android-arm64@1.32.0:
@@ -1083,6 +1197,12 @@ packages:
     resolution:
       {
         integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==,
+      }
+
+  ms@2.1.3:
+    resolution:
+      {
+        integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==,
       }
 
   nanoid@3.3.18:
@@ -1360,6 +1480,53 @@ packages:
 snapshots:
   "@alloc/quick-lru@5.2.0": {}
 
+  "@babel/code-frame@7.29.7":
+    dependencies:
+      "@babel/helper-validator-identifier": 7.29.7
+      js-tokens: 4.0.0
+      picocolors: 1.1.1
+
+  "@babel/generator@7.29.8":
+    dependencies:
+      "@babel/parser": 7.29.8
+      "@babel/types": 7.29.8
+      "@jridgewell/gen-mapping": 0.3.13
+      "@jridgewell/trace-mapping": 0.3.31
+      jsesc: 3.1.0
+
+  "@babel/helper-globals@7.29.7": {}
+
+  "@babel/helper-string-parser@7.29.7": {}
+
+  "@babel/helper-validator-identifier@7.29.7": {}
+
+  "@babel/parser@7.29.8":
+    dependencies:
+      "@babel/types": 7.29.8
+
+  "@babel/template@7.29.7":
+    dependencies:
+      "@babel/code-frame": 7.29.7
+      "@babel/parser": 7.29.8
+      "@babel/types": 7.29.8
+
+  "@babel/traverse@7.29.8":
+    dependencies:
+      "@babel/code-frame": 7.29.7
+      "@babel/generator": 7.29.8
+      "@babel/helper-globals": 7.29.7
+      "@babel/parser": 7.29.8
+      "@babel/template": 7.29.7
+      "@babel/types": 7.29.8
+      debug: 4.4.3
+    transitivePeerDependencies:
+      - supports-color
+
+  "@babel/types@7.29.8":
+    dependencies:
+      "@babel/helper-string-parser": 7.29.7
+      "@babel/helper-validator-identifier": 7.29.7
+
   "@emnapi/runtime@1.11.3":
     dependencies:
       tslib: 2.8.1
@@ -1403,6 +1570,17 @@ snapshots:
   "@heroicons/react@2.2.0(react@19.2.8)":
     dependencies:
       react: 19.2.8
+
+  "@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.6)":
+    dependencies:
+      "@babel/generator": 7.29.8
+      "@babel/parser": 7.29.8
+      "@babel/traverse": 7.29.8
+      "@babel/types": 7.29.8
+      prettier: 3.9.6
+      semver: 7.8.5
+    transitivePeerDependencies:
+      - supports-color
 
   "@img/colour@1.1.0":
     optional: true
@@ -1769,6 +1947,10 @@ snapshots:
 
   csstype@3.2.3: {}
 
+  debug@4.4.3:
+    dependencies:
+      ms: 2.1.3
+
   detect-libc@2.1.2: {}
 
   enhanced-resolve@5.24.5:
@@ -1783,6 +1965,10 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   jiti@2.7.0: {}
+
+  js-tokens@4.0.0: {}
+
+  jsesc@3.1.0: {}
 
   lightningcss-android-arm64@1.32.0:
     optional: true
@@ -1837,6 +2023,8 @@ snapshots:
     dependencies:
       "@jridgewell/sourcemap-codec": 1.5.5
 
+  ms@2.1.3: {}
+
   nanoid@3.3.18: {}
 
   next@16.3.3(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
@@ -1883,9 +2071,11 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier-plugin-tailwindcss@0.8.1(prettier@3.9.6):
+  prettier-plugin-tailwindcss@0.8.1(@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.6))(prettier@3.9.6):
     dependencies:
       prettier: 3.9.6
+    optionalDependencies:
+      "@ianvs/prettier-plugin-sort-imports": 4.7.1(prettier@3.9.6)
 
   prettier@3.9.6: {}
 
@@ -1922,8 +2112,7 @@ snapshots:
 
   scheduler@0.27.0: {}
 
-  semver@7.8.5:
-    optional: true
+  semver@7.8.5: {}
 
   sharp@0.35.4(@types/node@26.4.0):
     dependencies:
