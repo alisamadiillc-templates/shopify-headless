@@ -86,6 +86,13 @@ export default function MobileMenu({ menu }: MobileMenuProps) {
               ))}
             </ul>
           ) : null}
+          <ul className="flex w-full flex-col border-t border-neutral-200 pt-2 dark:border-neutral-700">
+            <li className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white">
+              <Link href="/account" prefetch={true} onClick={closeMobileMenu}>
+                Account
+              </Link>
+            </li>
+          </ul>
         </div>
       </SheetContent>
     </Sheet>

@@ -4,6 +4,9 @@ import Link from "next/link";
 import { getMenu } from "@/lib/shopify";
 import { Menu } from "@/lib/shopify/types";
 
+import UserButton, {
+  UserButtonSkeleton,
+} from "@/components/account/user-button";
 import CartModal from "@/components/cart/modal";
 import OpenCart from "@/components/cart/open-cart";
 import LogoSquare from "@/components/logo-square";
@@ -56,7 +59,10 @@ export async function Navbar() {
             <Search />
           </Suspense>
         </div>
-        <div className="flex justify-end md:w-1/3">
+        <div className="flex justify-end gap-2 md:w-1/3">
+          <Suspense fallback={<UserButtonSkeleton />}>
+            <UserButton />
+          </Suspense>
           <Suspense fallback={<OpenCart />}>
             <CartModal />
           </Suspense>

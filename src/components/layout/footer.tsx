@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getMenu } from "@/lib/shopify";
 
 import FooterMenu from "@/components/layout/footer-menu";
+import NewsletterForm from "@/components/layout/newsletter-form";
 import LogoSquare from "@/components/logo-square";
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
@@ -50,6 +51,7 @@ export default async function Footer() {
         >
           <FooterMenu menu={menu} />
         </Suspense>
+        <NewsletterForm />
         <div className="md:ml-auto">
           <a
             className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
