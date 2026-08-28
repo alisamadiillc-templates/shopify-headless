@@ -5,6 +5,11 @@ import { getPage } from "@/lib/shopify";
 
 import Prose from "@/components/prose";
 
+// This route resolves external Shopify page data and may call `notFound()`
+// for handles that don't exist, so it can't be asserted as an instant
+// navigation. Opt it out of instant validation.
+export const instant = false;
+
 interface PageProps {
   params: Promise<{ page: string }>;
 }
